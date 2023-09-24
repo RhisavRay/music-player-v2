@@ -33,6 +33,7 @@ app.post('/login', (req, res) => {
             expiresIn: data.body.expires_in
         })
     }).catch(() => {
+        //If error occurs
         res.sendStatus(400)
     })
 })
