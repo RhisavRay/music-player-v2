@@ -37,3 +37,5 @@ app.post('/login', (req, res) => {
         res.sendStatus(400)
     })
 })
+
+app.listen(3001);

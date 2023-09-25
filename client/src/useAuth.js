@@ -1,6 +1,7 @@
 // A custom hook to handle all the logic behind the login, authentication and refresh tokens
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const useAuth = (code) => {
   const [accessToken, setAccessToken] = useState();
@@ -8,7 +9,11 @@ const useAuth = (code) => {
   const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => {
-    effect
+    axios.post('http://localhost:3001/login', {
+        code
+    }).then(res => {
+        console.log(res.data);
+    })
   }, [code])
 }
 
