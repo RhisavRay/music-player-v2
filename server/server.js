@@ -1,10 +1,15 @@
 const express = require('express');
+
+//To remove cors and axios errors
+const cors = require('cors');
+
 /*
 The SpotifyWebApi helps read the data recieved afetr the authenticaition easier
 */
 const SpotifyWebApi = require('spotify-web-api-node');
 
 const app = express();
+app.use(cors());
 
 app.post('/login', (req, res) => {
 
