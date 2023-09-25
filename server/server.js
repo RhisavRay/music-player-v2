@@ -3,6 +3,9 @@ const express = require('express');
 //To remove cors and axios errors
 const cors = require('cors');
 
+//To remove error message 'Request failed with status code 500'
+const bodyParser = require('body-parser');
+
 /*
 The SpotifyWebApi helps read the data recieved afetr the authenticaition easier
 */
@@ -10,6 +13,7 @@ const SpotifyWebApi = require('spotify-web-api-node');
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 
 app.post('/login', (req, res) => {
 
@@ -37,9 +41,9 @@ app.post('/login', (req, res) => {
             refreshToken: data.body.refresh_token,
             expiresIn: data.body.expires_in
         })
-    }).catch(() => {
+    }).catch((err) => {
         //If error occurs
-        res.sendStatus(400)
+        res.sendStatus(400);
     })
 })
 

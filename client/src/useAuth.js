@@ -11,8 +11,12 @@ const useAuth = (code) => {
   useEffect(() => {
     axios.post('http://localhost:3001/login', {
         code
-    }).then(res => {
+    })
+    .then(res => {
         console.log(res.data);
+    })
+    .catch(() => {
+        window.location = '/';
     })
   }, [code])
 }
