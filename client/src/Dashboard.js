@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
+import useAuth from './useAuth'
+
+const Dashboard = ({code}) => {
+    const accessToken = useAuth(code);
+    return (
+        <div>Dashboard</div>
+    )
 }
 
 export default Dashboard

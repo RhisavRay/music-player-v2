@@ -10,7 +10,7 @@ const code = new URLSearchParams(window.location.search).get('code');
 function App() {
   return (
     // If logged in, i.e. code is there in URL, open Dashboard. Else Login
-    code ? <Dashboard/> : <Login/>
+    code ? <Dashboard code={code}/> : <Login/>
   );
 }
 
